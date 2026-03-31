@@ -15,10 +15,10 @@ def train_logistic_regression(X, y, lr=0.1, steps=1000):
         z = X.dot(w) + b
         y_hat = sigmoid(z)
         error = y_hat - y
-        dw = X.T.dot(error) / n
-        db = error.mean()
-        w -= lr * dw
-        b -= lr * db
+        gw = X.T.dot(error) / n
+        gb = error.mean()
+        w -= lr * gw
+        b -= lr * gb
     return w, b
 
 def predict(X, w, b, threshold=0.5):
